@@ -1,18 +1,33 @@
 # safeSubscribe
-Automatically unsubscribes from RxJS observables in Angular components.
+Automatically unsubscribes from RxJS observables in Angular components/services.
 
-## How to install
+## Installation
 
-```bash
+```sh
 npm i @mszewcz/safe-subscribe
 ```
 
-## How to use
+## Usage
 
 Use it as you would use RxJS `subscribe` operator, just pass component instance (`this`) as first parameter.
-Be sure to implement ngOnDestroy method in your component.
 
-Example component:
+Be sure to implement `ngOnDestroy` method in your component/service.
+
+#### safeSubscribe(classRef: Object, next?: Function, error?: Function, complete?: Function): Subscription
+
+__Arguments:__
+
+* `classRef` - A reference to the object that is holding the observable.
+* `next` - A handler for each delivered value.
+* `error` - A handler for an error notification.
+* `complete` - A handler for the execution-complete notification.
+
+__Returns:__
+
+* A `Subscription` object.
+
+__Example component:__
+
 ```ts
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
@@ -21,8 +36,6 @@ import '@mszewcz/safe-subscribe';
 
 @Component({
     selector: 'app-test',
-    templateUrl: './test.component.html',
-    styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnDestroy, OnInit {
     
@@ -34,7 +47,7 @@ export class TestComponent implements OnDestroy, OnInit {
     }
 
     /**
-     * required by safeSubscribe
+     * At least a noop ngOnDestroy is required for safeSubscribe to work
      */    
     public ngOnDestroy(): void {
     }
