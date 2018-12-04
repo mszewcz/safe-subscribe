@@ -1,0 +1,44 @@
+{
+    "name": "@mszewcz/safe-subscribe",
+    "version": "1.0.14",
+    "description": "RxJS safeSubscribe operator holding & automatically unsubscribing all subscriptions inside a component",
+    "author": {
+        "name": "Michał Szewczyk"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mszewcz/safe-subscribe.git"
+    },
+    "keywords": [
+        "rxjs",
+        "observable",
+        "subscribe",
+        "unsubscribe",
+        "operator",
+        "safeSubscribe"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clear-index": "rm -f index.*",
+        "clear-tgz": "rm -f *.tgz",
+        "rename": "rename safeSubscribe.* index.*",
+        "build": "npm run clear-index && tsc --build tsconfig.json && npm run rename && npm pack",
+        "pub": "npm publish --access=public && npm run clear-tgz"
+    },
+    "main": "./index.js",
+    "module": "./index.d.ts",
+    "typings": "./index.d.ts",
+    "peerDependencies": {
+        "rxjs": "^6.3.3"
+    },
+    "dependencies": {
+        "rxjs": "^6.3.3"
+    },
+    "devDependencies": {
+        "@types/node": "^10.12.12",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.2.1"
+    },
+    "deprecated": false,
+    "sideEffects": true
+}
