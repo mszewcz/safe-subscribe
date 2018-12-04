@@ -1,13 +1,8 @@
 import { Observable, Subscription } from 'rxjs';
 
-export function safeSubscribe<T>(
-    classRef: Object,
-    next?: (value: T) => void,
-    error?: (error: any) => void,
-    complete?: () => void
-): Subscription {
+export function safeSubscribe<T>(classRef: any, next?: (value: T) => void, error?: (error: any) => void, complete?: () => void): Subscription {
     if (typeof classRef !== 'object') {
-        throw new TypeError('First argument is not an object. Did you mean to pass \'this\'?');
+        throw new Error('First argument is not an object. Did you mean to pass \'this\'?');
     }
 
     const doesDestructorExist = (typeof classRef['ngOnDestroy'] === 'function');
@@ -15,7 +10,7 @@ export function safeSubscribe<T>(
     const sub = this.subscribe(next, error, complete);
 
     if (!doesSubscriptionSetExist) {
-        classRef['__sso'] = new Set<Subscription>();
+        classRef['__sso'] = [];
         if (doesDestructorExist) {
             const temp = classRef['ngOnDestroy'];
             classRef['ngOnDestroy'] = function () {
@@ -29,7 +24,7 @@ export function safeSubscribe<T>(
             console.error(`SSO: ngOnDestroy method missing in ${classRef.constructor.name}`);
         }
     }
-    classRef['__sso'].add(sub);
+    classRef['__sso'].push(sub);
 
     return sub;
 }
