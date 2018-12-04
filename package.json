@@ -1,7 +1,10 @@
 {
     "name": "@mszewcz/safe-subscribe",
-    "version": "1.0.14",
+    "version": "1.0.16",
     "description": "RxJS safeSubscribe operator holding & automatically unsubscribing all subscriptions inside a component",
+    "homepage": "https://github.com/mszewcz/safe-subscribe.git",
+    "license": "MIT",
+    "sideEffects": true,
     "author": {
         "name": "Michał Szewczyk"
     },
@@ -17,28 +20,35 @@
         "operator",
         "safeSubscribe"
     ],
-    "license": "MIT",
     "scripts": {
-        "clear-index": "rm -f index.*",
-        "clear-tgz": "rm -f *.tgz",
-        "rename": "rename safeSubscribe.* index.*",
-        "build": "npm run clear-index && tsc --build tsconfig.json && npm run rename && npm pack",
-        "pub": "npm publish --access=public && npm run clear-tgz"
+        "build": "ng-packagr -p package.json",
+        "publish": "npm publish dist --access public",
+        "unpublish": "npm -f unpublish"
     },
-    "main": "./index.js",
-    "module": "./index.d.ts",
-    "typings": "./index.d.ts",
+    "ngPackage": {
+        "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+        "lib": {
+            "entryFile": "./src/safeSubscribe.ts"
+        },
+        "whitelistedNonPeerDependencies": [
+            "angular",
+            "rxjs"
+        ]
+    },
     "peerDependencies": {
-        "rxjs": "^6.3.3"
+        "@angular/core": "^6.0.0 || ^7.0.0-beta.0",
+        "rxjs": "^6.0.0"
     },
     "dependencies": {
-        "rxjs": "^6.3.3"
+        "@angular/core": "^6.0.0 || ^7.0.0-beta.0",
+        "rxjs": "^6.0.0"
     },
     "devDependencies": {
-        "@types/node": "^10.12.12",
-        "ts-node": "^7.0.1",
-        "typescript": "^3.2.1"
-    },
-    "deprecated": false,
-    "sideEffects": true
+        "ng-packagr": "^4.4.0",
+        "@angular/compiler": "^6.0.0 || ^7.0.0-beta.0",
+        "@angular/compiler-cli": "^6.0.0 || ^7.0.0-beta.0",
+        "tsickle": ">=0.27.3",
+        "tslib": "^1.9.0",
+        "typescript": ">=2.7 <3.2"
+    }
 }
