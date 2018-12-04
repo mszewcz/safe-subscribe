@@ -13,11 +13,11 @@ Use it as you would use RxJS `subscribe` operator, just pass component instance 
 Be sure to implement ngOnDestroy method in your component.
 
 Example component:
-```angular2html
+```ts
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { interval } from 'rxjs';
 import '@mszewcz/safe-subscribe';
-
 
 @Component({
     selector: 'app-test',
