@@ -17,7 +17,7 @@ export function safeSubscribe<T>(classRef: any, next?: (value: T) => void, error
                 classRef['__sso'].forEach(function (s) {
                     s.unsubscribe();
                 });
-                classRef['__sso'].clear();
+                classRef['__sso'] = [];
                 temp.call(classRef);
             };
         } else {
