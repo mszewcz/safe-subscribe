@@ -1,6 +1,6 @@
 {
     "name": "@mszewcz/safe-subscribe",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "RxJS safeSubscribe operator holding & automatically unsubscribing all subscriptions inside a component",
     "homepage": "https://github.com/mszewcz/safe-subscribe.git",
     "license": "MIT",
