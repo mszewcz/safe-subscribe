@@ -48,7 +48,6 @@
     "@angular/compiler": "^7.2.15",
     "@angular/compiler-cli": "^7.2.15",
     "ng-packagr": "^4.7.1",
-    "tsickle": "^0.34.2",
     "tslib": "^1.10.0",
     "typescript": "^3.2.4"
   }
