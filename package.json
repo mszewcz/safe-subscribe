@@ -1,54 +1,55 @@
 {
-  "name": "@mszewcz/safe-subscribe",
-  "version": "1.0.18",
-  "description": "RxJS safeSubscribe operator holding & automatically unsubscribing all subscriptions inside a component",
-  "homepage": "https://github.com/mszewcz/safe-subscribe.git",
-  "license": "MIT",
-  "sideEffects": true,
-  "author": {
-    "name": "Michał Szewczyk"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mszewcz/safe-subscribe.git"
-  },
-  "keywords": [
-    "rxjs",
-    "observable",
-    "subscribe",
-    "unsubscribe",
-    "operator",
-    "safeSubscribe"
-  ],
-  "scripts": {
-    "build": "ng-packagr -p package.json",
-    "publish": "npm publish dist --access public",
-    "unpublish": "npm -f unpublish"
-  },
-  "ngPackage": {
-    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-    "lib": {
-      "entryFile": "./src/safeSubscribe.ts"
+    "name": "@mszewcz/safe-subscribe",
+    "version": "1.0.18",
+    "description": "RxJS safeSubscribe operator holding & automatically unsubscribing all subscriptions inside a component",
+    "homepage": "https://github.com/mszewcz/safe-subscribe.git",
+    "license": "MIT",
+    "sideEffects": true,
+    "author": {
+        "name": "Michał Szewczyk"
     },
-    "whitelistedNonPeerDependencies": [
-      "angular",
-      "rxjs",
-      "zone.js"
-    ]
-  },
-  "peerDependencies": {
-    "@angular/core": "^7.2.15"
-  },
-  "dependencies": {
-    "@angular/core": "^7.2.15",
-    "rxjs": "^6.5.2",
-    "zone.js": "^0.8.26"
-  },
-  "devDependencies": {
-    "@angular/compiler": "^7.2.15",
-    "@angular/compiler-cli": "^7.2.15",
-    "ng-packagr": "^4.7.1",
-    "tslib": "^1.10.0",
-    "typescript": "^3.2.4"
-  }
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mszewcz/safe-subscribe.git"
+    },
+    "keywords": [
+        "rxjs",
+        "observable",
+        "subscribe",
+        "unsubscribe",
+        "operator",
+        "safeSubscribe"
+    ],
+    "scripts": {
+        "build": "ng-packagr -p package.json",
+        "publish": "npm publish dist --access public",
+        "unpublish": "npm -f unpublish"
+    },
+    "ngPackage": {
+        "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+        "lib": {
+            "entryFile": "./src/safeSubscribe.ts"
+        },
+        "whitelistedNonPeerDependencies": [
+            "angular",
+            "rxjs",
+            "zone.js"
+        ]
+    },
+    "peerDependencies": {
+        "@angular/core": "^8.2.7"
+    },
+    "dependencies": {
+        "@angular/core": "^8.2.7",
+        "rxjs": "^6.5.2",
+        "zone.js": "^0.9.1"
+    },
+    "devDependencies": {
+        "@angular/compiler": "^8.2.7",
+        "@angular/compiler-cli": "^8.2.7",
+        "ng-packagr": "^5.5.1",
+        "tsickle": "^0.37.0",
+        "tslib": "^1.10.0",
+        "typescript": "^3.5.3"
+    }
 }
