@@ -47,6 +47,7 @@
     "devDependencies": {
         "@angular/compiler": "^8.2.7",
         "@angular/compiler-cli": "^8.2.7",
+        "@angular-devkit/schematics": "^9.0.6",
         "ng-packagr": "^5.5.1",
         "tsickle": "^0.37.0",
         "tslib": "^1.10.0",
